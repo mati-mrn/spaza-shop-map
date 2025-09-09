@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Non-consenting shopowners</title>
+  <style>
+    /* Always set the map height explicitly to define the size of the div */
+    #map {
+      height: 100%;
+    }
+    /* Optional: Sets the width and height of the body to 100% to fill the page */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <h3>Non-consenting shopowners</h3>
+  <div id="map"></div>
+  <script>
+    // An array of coordinates for the markers
+    const locations = [
+      { lat: -26.1036328, lng: 28.0991714 },
+      { lat: -26.0992463, lng: 28.0986171 },
+      { lat: -26.0995414, lng: 28.093796 },
+      { lat: -26.1079323, lng: 28.0909973 },
+      { lat: -26.1003128, lng: 28.090138 },
+      { lat: -26.1052248, lng: 28.0888101 },
+      { lat: -26.1069307, lng: 28.0884421 },
+      { lat: -26.1012812, lng: 28.091967 },
+      { lat: -26.0983243, lng: 28.0963566 },
+      { lat: -26.1098921, lng: 28.0917128 },
+      { lat: -26.1108766, lng: 28.0883859 },
+      { lat: -26.1104385, lng: 28.0886748 },
+      { lat: -26.1104385, lng: 28.0886748 },
+      { lat: -26.1066376, lng: 28.0890406 },
+      { lat: -26.1090475, lng: 28.1042089 },
+      { lat: -26.099957, lng: 28.0934302 },
+      { lat: -26.107389, lng: 28.1015878 },
+      { lat: -26.1063117, lng: 28.093796 },
+      { lat: -26.1043648, lng: 28.1062327 },
+      { lat: -26.1063117, lng: 28.093796 },
+      { lat: -26.1104111, lng: 28.1095875 }
+    ];
+
+    function initMap() {
+      // Create the map object, centered on the first location
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13, // Adjust the zoom level as needed
+        center: locations[0],
+      });
+
+      // Loop through the locations array and add a marker for each one
+      for (let i = 0; i < locations.length; i++) {
+        new google.maps.Marker({
+          position: locations[i],
+          map: map,
+        });
+      }
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrLeBAhEPlKA0Ta87Ed1QJcZzE-Gx38SQ&callback=initMap">
+  </script>
+</body>
+</html>
